@@ -69,6 +69,7 @@ Click the widget → **Edit Widget** to configure:
 |---|---|
 | **Start Day of Week** | Which day appears in the first column (default: Sunday) |
 | **Month Offset** | Shift from current month: -1 = previous, 0 = current, +1 = next |
+| **Show Adjacent Days** | Show/hide days from previous and next month in empty grid cells (default: on) |
 
 ### Three-month setup
 

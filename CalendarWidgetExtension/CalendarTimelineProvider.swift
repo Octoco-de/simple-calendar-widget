@@ -6,7 +6,7 @@ struct CalendarTimelineProvider: AppIntentTimelineProvider {
 
     func placeholder(in context: Context) -> CalendarWidgetEntry {
         let data = MonthCalculator.computeMonth(baseDate: Date(), monthOffset: 0, startDayOfWeek: 1)
-        return CalendarWidgetEntry(date: Date(), monthData: data)
+        return CalendarWidgetEntry(date: Date(), monthData: data, showAdjacentDays: true)
     }
 
     func snapshot(for configuration: CalendarWidgetIntent, in context: Context) async -> CalendarWidgetEntry {
@@ -15,7 +15,7 @@ struct CalendarTimelineProvider: AppIntentTimelineProvider {
             monthOffset: configuration.monthOffset,
             startDayOfWeek: configuration.startDayOfWeek.rawValue
         )
-        return CalendarWidgetEntry(date: Date(), monthData: data)
+        return CalendarWidgetEntry(date: Date(), monthData: data, showAdjacentDays: configuration.showAdjacentDays)
     }
 
     func timeline(for configuration: CalendarWidgetIntent, in context: Context) async -> Timeline<CalendarWidgetEntry> {
@@ -27,7 +27,7 @@ struct CalendarTimelineProvider: AppIntentTimelineProvider {
             monthOffset: configuration.monthOffset,
             startDayOfWeek: configuration.startDayOfWeek.rawValue
         )
-        let currentEntry = CalendarWidgetEntry(date: now, monthData: data)
+        let currentEntry = CalendarWidgetEntry(date: now, monthData: data, showAdjacentDays: configuration.showAdjacentDays)
 
         guard let tomorrow = calendar.date(byAdding: .day, value: 1, to: now) else {
             return Timeline(entries: [currentEntry], policy: .atEnd)
@@ -39,7 +39,7 @@ struct CalendarTimelineProvider: AppIntentTimelineProvider {
             monthOffset: configuration.monthOffset,
             startDayOfWeek: configuration.startDayOfWeek.rawValue
         )
-        let tomorrowEntry = CalendarWidgetEntry(date: startOfTomorrow, monthData: tomorrowData)
+        let tomorrowEntry = CalendarWidgetEntry(date: startOfTomorrow, monthData: tomorrowData, showAdjacentDays: configuration.showAdjacentDays)
 
         return Timeline(entries: [currentEntry, tomorrowEntry], policy: .atEnd)
     }

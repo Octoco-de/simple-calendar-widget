@@ -32,9 +32,11 @@ From top to bottom:
 |---|---|---|---|
 | **Start day of week** | Picker | Sunday | Sunday through Saturday |
 | **Month offset** | Integer stepper | 0 (current month) | -12 to +12 |
+| **Show adjacent days** | Toggle | On | On / Off |
 
 - **Start day of week**: Determines which day appears in the first column of the grid
 - **Month offset**: Shifts the displayed month relative to the current month. Examples: `-1` = previous month, `0` = current month, `+1` = next month
+- **Show adjacent days**: When on, empty grid cells show days from previous/next month in a lighter style. When off, those cells are blank.
 
 ## Theming
 

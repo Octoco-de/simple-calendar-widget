@@ -3,6 +3,7 @@ import WidgetKit
 struct CalendarWidgetEntry: TimelineEntry {
     let date: Date
     let monthData: MonthData
+    let showAdjacentDays: Bool
 }
 
 struct MonthData: Sendable {

@@ -63,10 +63,14 @@ struct CalendarGridView: View {
                 .foregroundStyle(.primary)
                 .frame(height: 18)
                 .frame(maxWidth: .infinity)
-        } else {
+        } else if entry.showAdjacentDays {
             Text("\(cell.dayNumber)")
                 .font(.system(size: 10, weight: .medium, design: .rounded))
                 .foregroundStyle(.quaternary)
+                .frame(height: 18)
+                .frame(maxWidth: .infinity)
+        } else {
+            Color.clear
                 .frame(height: 18)
                 .frame(maxWidth: .infinity)
         }

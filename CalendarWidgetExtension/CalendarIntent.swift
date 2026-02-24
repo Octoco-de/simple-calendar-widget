@@ -32,4 +32,7 @@ struct CalendarWidgetIntent: WidgetConfigurationIntent {
 
     @Parameter(title: "Month Offset", default: 0)
     var monthOffset: Int
+
+    @Parameter(title: "Show Adjacent Days", default: true)
+    var showAdjacentDays: Bool
 }
